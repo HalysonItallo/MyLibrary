@@ -20,27 +20,12 @@ class BookController {
     .where('title', 'like', `%${data.title}%`)
     .where('name_author', 'like', `%${data.name_author}%`)
     .where('publishing_company', 'like', `%${data.publishing_company}%`)
+    .where('status', '!=', '1')
     .fetch();
     return book;
   }
     
-  async commit({ request }){
-    const data = request.only(['id']);
-    return await Book.query()
-      .where('id', '=' , data.id)
-      .update({
-        status: '1'
-    });
-  }  
-    
-  async devolution({ request }){
-    const data = request.only(['id']);
-    return await Book.query()
-      .where('id', '=' , data.id)
-      .update({
-        status: '0'
-    });
-  }  
+  
 }
 
 module.exports = BookController

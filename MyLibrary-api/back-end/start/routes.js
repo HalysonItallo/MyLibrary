@@ -18,5 +18,7 @@ const Route = use('Route')
 
 Route.post('/create', 'BookController.store');
 Route.post('/search', 'BookController.show');
-Route.post('/commit', 'BookController.commit');
-Route.post('/devolution', 'BookController.devolution')
+Route.post('/signIn', 'ClientController.store');
+Route.post('/login', 'ClientController.login');
+Route.post('/commit', 'CommitController.commit');
+Route.post('/devolution', 'CommitController.devolution');
